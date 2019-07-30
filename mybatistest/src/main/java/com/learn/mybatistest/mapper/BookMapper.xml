@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--指定的对应mapper-->
+<mapper namespace="com.learn.mybatistest.mapper.BookMapper">
+    <insert id="addBook" parameterType="com.learn.mybatistest.bean.Book">
+        insert into book(name, author)
+        values (#{name}, #{author})
+    </insert>
+    <delete id="deleteBookById" parameterType="int">
+        delete
+        from book
+        where id = #{id}
+    </delete>
+    <update id="updateBookById" parameterType="com.learn.mybatistest.bean.Book">
+        update book
+        set name=#{name},
+            author=#{author}
+        where id = #{id}
+    </update>
+    <select id="getBookById" parameterType="int" resultType="com.learn.mybatistest.bean.Book">
+        select *
+        from book
+        where id = #{id}
+    </select>
+    <select id="getAllBooks" resultType="com.learn.mybatistest.bean.Book">
+        select *
+        from book
+    </select>
+</mapper>
