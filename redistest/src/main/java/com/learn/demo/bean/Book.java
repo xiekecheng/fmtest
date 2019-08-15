@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @since: 2019-07-29 21:06
  **/
 @Data
-public class Book implements Serializable {
+public class    Book implements Serializable {
     private Integer Id;
     private String name;
     private String author;
