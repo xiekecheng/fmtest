@@ -22,10 +22,19 @@ public class JmsComponent {
     @Autowired
     Queue queue;
 
+    /**
+     * messagingTemplate   JMS消息发送模板
+     * this.queue是消息队列，msg是消息
+     * @param msg
+     */
     public void send(Message msg){
         messagingTemplate.convertAndSend(this.queue,msg);
     }
 
+    /**
+     * 监听消息队列里的消息
+     * @param message
+     */
     @JmsListener(destination="amq")
     public void receive(Message message){
         System.out.println("receive:"+message);
